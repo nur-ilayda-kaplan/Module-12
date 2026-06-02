@@ -174,7 +174,6 @@ export function startMockServer(port: number = 3000) {
 
 export function stopMockServer() {
   cartCount = 0;
-  isLoggedIn = false;
   return new Promise((resolve) => {
     if (server) {
       server.close(() => {
