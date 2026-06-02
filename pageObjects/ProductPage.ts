@@ -1,16 +1,13 @@
-import { Page } from "playwright";
-import { config } from "../support/config";
+import { Page } from 'playwright';
+import { config } from '../support/config';
 
 export class ProductPage {
   constructor(private page: Page) {}
 
   async goto(productName: string) {
-    await this.page.goto(
-      `${config.baseUrl}/products/${encodeURIComponent(productName)}`,
-      {
-        waitUntil: "domcontentloaded",
-      },
-    );
+    await this.page.goto(`${config.baseUrl}/products/${encodeURIComponent(productName)}`, {
+      waitUntil: 'domcontentloaded',
+    });
   }
 
   async addToCart() {
@@ -19,7 +16,7 @@ export class ProductPage {
         timeout: config.waitTimeout,
       });
     } catch (error) {
-      console.error("Add to cart failed:", error);
+      console.error('Add to cart failed:', error);
       throw error;
     }
   }

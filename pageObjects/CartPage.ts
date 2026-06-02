@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import { config } from "../support/config";
+import { Page } from 'playwright';
+import { config } from '../support/config';
 
 export class CartPage {
   constructor(private page: Page) {}
@@ -10,7 +10,7 @@ export class CartPage {
         timeout: config.waitTimeout,
       });
     } catch {
-      return "0";
+      return '0';
     }
   }
 
@@ -20,7 +20,7 @@ export class CartPage {
         timeout: config.waitTimeout,
       });
     } catch (error) {
-      console.error("Checkout failed:", error);
+      console.error('Checkout failed:', error);
       throw error;
     }
   }

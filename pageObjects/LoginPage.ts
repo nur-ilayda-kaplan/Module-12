@@ -1,12 +1,12 @@
-import { Page } from "playwright";
-import { config } from "../support/config";
+import { Page } from 'playwright';
+import { config } from '../support/config';
 
 export class LoginPage {
   constructor(private page: Page) {}
 
   async goto() {
     await this.page.goto(`${config.baseUrl}/login`, {
-      waitUntil: "domcontentloaded",
+      waitUntil: 'domcontentloaded',
     });
   }
 
@@ -22,7 +22,7 @@ export class LoginPage {
         timeout: config.waitTimeout,
       });
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error('Login failed:', error);
       throw error;
     }
   }

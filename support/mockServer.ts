@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express } from 'express';
 
 let server: any = null;
 let cartCount = 0;
@@ -14,7 +14,7 @@ export function startMockServer(port: number = 3000) {
   app.use(express.json());
 
   // Mock Login Page
-  app.get("/login", (req, res) => {
+  app.get('/login', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -45,11 +45,11 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Handle login
-  app.post("/login", (req, res) => {
+  app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    if (username === "standard_user" && password === "secret") {
+    if (username === 'standard_user' && password === 'secret') {
       isLoggedIn = true;
-      res.redirect(302, "/dashboard");
+      res.redirect(302, '/dashboard');
     } else {
       res.send(`
         <!DOCTYPE html>
@@ -69,7 +69,7 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Mock Dashboard
-  app.get("/dashboard", (req, res) => {
+  app.get('/dashboard', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -82,7 +82,7 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Mock Home Page
-  app.get("/", (req, res) => {
+  app.get('/', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -95,7 +95,7 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Mock Product Page
-  app.get("/products/:name", (req, res) => {
+  app.get('/products/:name', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -109,13 +109,13 @@ export function startMockServer(port: number = 3000) {
   });
 
   // API endpoint to add to cart
-  app.post("/api/cart", (req, res) => {
+  app.post('/api/cart', (req, res) => {
     cartCount++;
     res.json({ cartCount });
   });
 
   // Mock Cart Page
-  app.get("/cart", (req, res) => {
+  app.get('/cart', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -129,7 +129,7 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Mock Checkout Page
-  app.get("/checkout", (req, res) => {
+  app.get('/checkout', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -147,12 +147,12 @@ export function startMockServer(port: number = 3000) {
   });
 
   // Handle checkout
-  app.post("/checkout", (req, res) => {
-    res.redirect(302, "/confirmation");
+  app.post('/checkout', (req, res) => {
+    res.redirect(302, '/confirmation');
   });
 
   // Mock Confirmation Page
-  app.get("/confirmation", (req, res) => {
+  app.get('/confirmation', (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html>
@@ -179,7 +179,7 @@ export function stopMockServer() {
   return new Promise((resolve) => {
     if (server) {
       server.close(() => {
-        console.log("✅ Mock test server stopped");
+        console.log('✅ Mock test server stopped');
         resolve(null);
       });
     } else {

@@ -1,11 +1,11 @@
-import { Page } from "playwright";
-import { config } from "../support/config";
+import { Page } from 'playwright';
+import { config } from '../support/config';
 
 export class HomePage {
   constructor(private page: Page) {}
 
   async goto() {
-    await this.page.goto(config.baseUrl, { waitUntil: "domcontentloaded" });
+    await this.page.goto(config.baseUrl, { waitUntil: 'domcontentloaded' });
   }
 
   async search(term: string) {
@@ -13,9 +13,9 @@ export class HomePage {
       await this.page.fill(config.selectors.searchInput, term, {
         timeout: config.waitTimeout,
       });
-      await this.page.press(config.selectors.searchInput, "Enter");
+      await this.page.press(config.selectors.searchInput, 'Enter');
     } catch (error) {
-      console.error("Search failed:", error);
+      console.error('Search failed:', error);
       throw error;
     }
   }

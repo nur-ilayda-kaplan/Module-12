@@ -248,13 +248,13 @@ module.exports = {
 
 ```typescript
 export const config = {
-  baseUrl: process.env.BASE_URL || "http://localhost:3000",
+  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   selectors: {
     // Veri test kimliğiyle tanımlı
     usernameInput: '[data-testid="username"]',
     // ... diğer seçiciler
   },
-  waitTimeout: parseInt(process.env.WAIT_TIMEOUT || "5000"),
+  waitTimeout: parseInt(process.env.WAIT_TIMEOUT || '5000'),
 };
 ```
 
