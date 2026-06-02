@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
+import { Server } from 'http';
 
-let server: any = null;
+let server: Server | null = null;
 let cartCount = 0;
-let isLoggedIn = false;
 
 /**
  * Start a simple mock test server
@@ -48,7 +48,6 @@ export function startMockServer(port: number = 3000) {
   app.post('/login', (req, res) => {
     const { username, password } = req.body;
     if (username === 'standard_user' && password === 'secret') {
-      isLoggedIn = true;
       res.redirect(302, '/dashboard');
     } else {
       res.send(`
