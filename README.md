@@ -6,17 +6,19 @@ Project contains E2E tests, Cucumber feature files, and a small mock server used
 
 Installation
 
-- Install Node.js (LTS) and npm.
+- Install Node.js 18.x LTS and npm.
 - From project root run:
 
 ```bash
 npm ci
+npx playwright install --with-deps
 ```
 
 Running tests
 
 - Playwright tests: `npm test`
 - Cucumber UI tests: `npm run test:ui`
+- Run tagged Cucumber suites: `npm run test:ui -- --tags '@critical'`
 
 CI/CD
 

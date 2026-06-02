@@ -4,5 +4,7 @@ build/
 .vscode/
 .env
 coverage/
+test-results/
+artifacts/
 *.log
 npm-debug.log*
